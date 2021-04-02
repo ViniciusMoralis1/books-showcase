@@ -1,9 +1,12 @@
 import React from 'react';
+import GlobalStyle from './styles/global';
+import Login from './pages/Login';
 
-export default function App() {
-  return (
-    <div>
-      <h1>Inicio do desenvolvimento</h1>
-    </div>
-  );
-}
+const App = () => (
+  <div className="App">
+    <GlobalStyle />
+    <Login />
+  </div>
+);
+
+export default App;
