@@ -28,8 +28,8 @@ const Login = () => {
           console.log(response);
           const token = response.headers.authorization;
           const user = response.data;
-          localStorage.setitem('@BookShowcase:Token', token);
-          localStorage.setitem('@BookShowcase:User', JSON.stringify(user));
+          localStorage.setItem('@BookShowcase:Token', token);
+          localStorage.setItem('@BookShowcase:User', JSON.stringify(user));
 
           history.push('/listagem');
         }
