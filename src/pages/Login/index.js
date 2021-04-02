@@ -2,6 +2,7 @@
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import LogoIoasys from '../../components/logoIoasys';
 import api from '../../services/api';
 
@@ -10,6 +11,7 @@ import {
 } from './styles';
 
 const Login = () => {
+  const history = useHistory();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -24,6 +26,12 @@ const Login = () => {
       await api.post('/auth/sign-in', data).then((response) => {
         if (response && response.status >= 200 && response.status < 300) {
           console.log(response);
+          const token = response.headers.authorization;
+          const user = response.data;
+          localStorage.setitem('@BookShowcase:Token', token);
+          localStorage.setitem('@BookShowcase:User', JSON.stringify(user));
+
+          history.push('/listagem');
         }
       });
     } catch (error) {

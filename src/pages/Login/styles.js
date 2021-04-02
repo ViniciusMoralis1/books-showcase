@@ -15,7 +15,7 @@ export const LoginContainer = styled.div`
   place-content: center;
 
   width: 100%;
-  max-width: 700px;
+  max-width: 600px;
 
   align-items: center;
 

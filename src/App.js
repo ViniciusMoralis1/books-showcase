@@ -1,11 +1,11 @@
 import React from 'react';
 import GlobalStyle from './styles/global';
-import Login from './pages/Login';
+import Routes from './routes';
 
 const App = () => (
   <div className="App">
     <GlobalStyle />
-    <Login />
+    <Routes />
   </div>
 );
 
