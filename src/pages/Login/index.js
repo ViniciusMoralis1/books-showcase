@@ -1,27 +1,53 @@
-import React from 'react';
+/* eslint-disable quote-props */
+/* eslint-disable no-console */
+/* eslint-disable arrow-body-style */
+import React, { useState } from 'react';
 import LogoIoasys from '../../components/logoIoasys';
+import api from '../../services/api';
 
 import {
   Container, LoginContainer, LogoContainer,
 } from './styles';
 
-const Login = () => (
-  <Container>
-    <LoginContainer>
-      <form>
-        <LogoContainer>
-          <LogoIoasys logo="white" />
-        </LogoContainer>
+const Login = () => {
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
-        <input placeholder="E-mail" />
-        <label>
-          <input placeholder="Senha" type="password" />
-          <button type="submit"><span>Entrar</span></button>
-        </label>
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const data = {
+        email,
+        'password': senha,
+      };
 
-      </form>
-    </LoginContainer>
-  </Container>
-);
+      await api.post('/auth/sign-in', data).then((response) => {
+        if (response && response.status >= 200 && response.status < 300) {
+          console.log(response);
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  return (
+    <Container>
+      <LoginContainer>
+        <form onSubmit={handleSubmit}>
+          <LogoContainer>
+            <LogoIoasys logo="white" />
+          </LogoContainer>
+
+          <input placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <label>
+            <input placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
+            <button type="submit"><span>Entrar</span></button>
+          </label>
+        </form>
+      </LoginContainer>
+    </Container>
+  );
+};
 
 export default Login;
