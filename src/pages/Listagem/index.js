@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
+import Header from '../../components/Header';
 import api from '../../services/api';
 
 import { Container } from './styles';
@@ -35,7 +36,7 @@ const Listagem = () => {
 
   return (
     <Container>
-      <h1>{user.name}</h1>
+      <Header name={user.name} />
     </Container>
   );
 };

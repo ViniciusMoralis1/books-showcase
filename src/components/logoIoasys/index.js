@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import whiteLogoImg from '../../assets/WhiteLogo.svg';
 import darkLogoImg from '../../assets/DarkLogo.svg';
 
-import { Title } from './styles';
+import { Container } from './styles';
 
 const LogoIoasys = ({ logo }) => (
-  <>
+  <Container>
     {logo === 'white'
       ? (
         <img width={104} height={36} src={whiteLogoImg} alt="logo ioasys" />
@@ -15,8 +15,8 @@ const LogoIoasys = ({ logo }) => (
       : (
         <img width={104} height={36} src={darkLogoImg} alt="logo ioasys" />
       )}
-    <Title>Books</Title>
-  </>
+    <h1>Books</h1>
+  </Container>
 );
 
 LogoIoasys.propTypes = {

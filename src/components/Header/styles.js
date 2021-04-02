@@ -3,11 +3,15 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
+  height: 12vh;
+  justify-content: space-around;
 
   h1 {
-    line-height: 40px;
-    font-size: 28px;
+    font-size: 16px;
     font-weight: 300;
-    margin-left: 18px;
+  }
+
+  h1 > span {
+    font-weight: 500;
   }
 `;
