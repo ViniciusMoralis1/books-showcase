@@ -66,7 +66,7 @@ const Login = () => {
 
           <label>
             <input value={email} onChange={(e) => setEmail(e.target.value)} minLength="1" onInvalid={showAlert} required />
-            <Placeholder>E-mail</Placeholder>
+            <Placeholder>Email</Placeholder>
           </label>
           <label>
             <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} minLength="1" onInvalid={showAlert} required />
@@ -77,7 +77,7 @@ const Login = () => {
 
           {errorAlert && (
             <ErrorMessage>
-              <span>E-mail e/ou senha incorretos.</span>
+              <span>Email e/ou senha incorretos.</span>
             </ErrorMessage>
           )}
 

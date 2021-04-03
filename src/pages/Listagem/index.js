@@ -6,9 +6,10 @@ import React, { useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import api from '../../services/api';
 
-import { Container } from './styles';
+import { Container, BooksContainer } from './styles';
 
 const Listagem = () => {
+  // eslint-disable-next-line no-unused-vars
   const [page, setPage] = useState(1);
   const [books, setBooks] = useState([]);
   const token = localStorage.getItem('@BookShowcase:Token');
@@ -28,20 +29,21 @@ const Listagem = () => {
       console.log(response.data.data);
 
       setBooks(response.data.data);
-      setPage(page + 1);
     });
   }, []);
 
   return (
     <Container>
       <Header name={user.name} />
-      <ul>
-        {books && books?.map((book) => (
-          <li key={book.id}>
-            <h1>{book.title}</h1>
-          </li>
-        ))}
-      </ul>
+      <BooksContainer>
+        <ul>
+          {books && books?.map((book) => (
+            <li key={book.id}>
+              <h1>{book.title}</h1>
+            </li>
+          ))}
+        </ul>
+      </BooksContainer>
     </Container>
   );
 };
