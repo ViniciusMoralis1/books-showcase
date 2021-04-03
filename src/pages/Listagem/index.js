@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable func-names */
 /* eslint-disable wrap-iife */
 /* eslint-disable no-console */
@@ -39,7 +40,21 @@ const Listagem = () => {
         <ul>
           {books && books?.map((book) => (
             <li key={book.id}>
-              <h1>{book.title}</h1>
+              <div className="imageContainer">
+                <img src={book.imageUrl} alt="capa do livro" />
+              </div>
+              <div className="bookInfo">
+                <div className="mainInfoContainer">
+                  <h1>{book.title}</h1>
+                  <h2>{book.authors[0]}</h2>
+                </div>
+
+                <div className="otherInfoContainer">
+                  <h3>{book.pageCount} páginas</h3>
+                  <h3>Editora {book.publisher}</h3>
+                  <h3>Publicado em {book.published}</h3>
+                </div>
+              </div>
             </li>
           ))}
         </ul>
