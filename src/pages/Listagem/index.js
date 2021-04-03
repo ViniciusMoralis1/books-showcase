@@ -4,6 +4,7 @@
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import Header from '../../components/Header';
 import api from '../../services/api';
 
@@ -64,6 +65,16 @@ const Listagem = () => {
       </BooksContainer>
       <div className="pagesContainer">
         <p>Página <span>{actualPage}</span> de <span>{totalPages}</span></p>
+
+        <div className="buttonsContainer">
+          <button type="button">
+            <FiChevronLeft size={16} color="#000" />
+          </button>
+
+          <button type="button">
+            <FiChevronRight size={16} color="#000" />
+          </button>
+        </div>
       </div>
     </Container>
   );
