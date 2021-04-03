@@ -11,10 +11,23 @@ export const Container = styled.div`
   align-items: stretch;
 
   padding: 0 5%;
+
+  .pagesContainer {
+    margin-top: 16px;
+    align-self: flex-end;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+
+  .pagesContainer > p > span {
+    font-weight: 500;
+  }
 `;
 
 export const BooksContainer = styled.div`
-  justify-content: center;
+  /* margin: auto 0;
+  justify-content: center; */
 
   ul {
     display: grid;

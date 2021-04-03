@@ -11,7 +11,8 @@ import { Container, BooksContainer } from './styles';
 
 const Listagem = () => {
   // eslint-disable-next-line no-unused-vars
-  const [page, setPage] = useState(1);
+  const [actualPage, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const [books, setBooks] = useState([]);
   const token = localStorage.getItem('@BookShowcase:Token');
   const user = JSON.parse(localStorage.getItem('@BookShowcase:User'));
@@ -19,7 +20,7 @@ const Listagem = () => {
   useEffect(() => {
     api.get('books', {
       params: {
-        page,
+        page: actualPage,
         amount: 12,
         category: 'biographies',
       },
@@ -28,6 +29,8 @@ const Listagem = () => {
       },
     }).then((response) => {
       console.log(response.data.data);
+      console.log(response.data);
+      setTotalPages(Math.round(response.data.totalPages));
 
       setBooks(response.data.data);
     });
@@ -59,6 +62,9 @@ const Listagem = () => {
           ))}
         </ul>
       </BooksContainer>
+      <div className="pagesContainer">
+        <p>Página <span>{actualPage}</span> de <span>{totalPages}</span></p>
+      </div>
     </Container>
   );
 };
