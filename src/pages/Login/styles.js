@@ -1,3 +1,6 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-expressions */
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -36,6 +39,7 @@ export const LoginContainer = styled.div`
     backdrop-filter: blur(2px);
     margin-bottom: 16px;
 
+    /* background: ${(props) => { (props.value ? 'red' : 'white'); }}; */
     &::placeholder{
       color: #F5F5F5;
     }
@@ -77,6 +81,13 @@ export const LoginContainer = styled.div`
   }
 `;
 
+export const Placeholder = styled.p`
+  position: absolute;
+  opacity: 0.5;
+  margin-top: -74px;
+  margin-left: 16px;
+`;
+
 export const LogoContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -86,4 +97,15 @@ export const LogoContainer = styled.div`
 export const InputButton = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const InputEmail = styled.input`
+  padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
+`;
+
+// padding-top: ${(props) => (props.children.props.children[1].props
+// .children[0].props.value != '' ? '16px' : '0px')};
+
+export const InputSenha = styled.input`
+  padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
 `;

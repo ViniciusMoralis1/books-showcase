@@ -26,10 +26,8 @@ const Listagem = () => {
       },
     }).then((response) => {
       console.log(response.data.data);
-      console.log(typeof (response.data.data));
 
       setBooks(response.data.data);
-      console.log(books);
       setPage(page + 1);
     });
   }, []);
@@ -39,7 +37,9 @@ const Listagem = () => {
       <Header name={user.name} />
       <ul>
         {books && books?.map((book) => (
-          <h1 key={book.id}>{book}</h1>
+          <li key={book.id}>
+            <h1>{book.title}</h1>
+          </li>
         ))}
       </ul>
     </Container>

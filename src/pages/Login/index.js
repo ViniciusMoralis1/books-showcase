@@ -7,7 +7,7 @@ import LogoIoasys from '../../components/logoIoasys';
 import api from '../../services/api';
 
 import {
-  Container, LoginContainer, LogoContainer,
+  Container, LoginContainer, LogoContainer, Placeholder, InputEmail, InputSenha,
 } from './styles';
 
 const Login = () => {
@@ -47,9 +47,17 @@ const Login = () => {
             <LogoIoasys logo="white" />
           </LogoContainer>
 
-          <input placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
           <label>
-            <input placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
+            <InputEmail placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
+            {email && (
+              <Placeholder>E-mail</Placeholder>
+            )}
+          </label>
+          <label>
+            <InputSenha placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
+            {senha && (
+              <Placeholder>Senha</Placeholder>
+            )}
             <button type="submit"><span>Entrar</span></button>
           </label>
         </form>
