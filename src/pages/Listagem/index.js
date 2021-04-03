@@ -1,3 +1,5 @@
+/* eslint-disable func-names */
+/* eslint-disable wrap-iife */
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
@@ -8,11 +10,12 @@ import { Container } from './styles';
 
 const Listagem = () => {
   const [page, setPage] = useState(1);
-  const [user, setUser] = useState({});
-  const [token, setToken] = useState('');
+  const [books, setBooks] = useState([]);
+  const token = localStorage.getItem('@BookShowcase:Token');
+  const user = JSON.parse(localStorage.getItem('@BookShowcase:User'));
 
-  async function loadBooks() {
-    await api.get('books', {
+  useEffect(() => {
+    api.get('books', {
       params: {
         page,
         amount: 12,
@@ -22,21 +25,23 @@ const Listagem = () => {
         Authorization: `Bearer ${token}`,
       },
     }).then((response) => {
-      console.log(response);
+      console.log(response.data.data);
+      console.log(typeof (response.data.data));
+
+      setBooks(response.data.data);
+      console.log(books);
       setPage(page + 1);
     });
-  }
-
-  useEffect(() => {
-    setToken(localStorage.getItem('@BookShowcase:Token'));
-    setUser(JSON.parse(localStorage.getItem('@BookShowcase:User')));
-
-    loadBooks();
   }, []);
 
   return (
     <Container>
       <Header name={user.name} />
+      <ul>
+        {books && books?.map((book) => (
+          <h1 key={book.id}>{book}</h1>
+        ))}
+      </ul>
     </Container>
   );
 };
