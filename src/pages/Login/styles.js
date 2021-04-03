@@ -38,14 +38,19 @@ export const LoginContainer = styled.div`
     color: #FFF;
     backdrop-filter: blur(2px);
     margin-bottom: 16px;
+    transition: .5s;
 
-    /* background: ${(props) => { (props.value ? 'red' : 'white'); }}; */
     &::placeholder{
       color: #F5F5F5;
+    }
+
+    &:focus, &:valid{
+      padding-top: 12px;
     }
   }
 
   label {
+    position: relative;
     display: inline-block;
   }
 
@@ -83,9 +88,15 @@ export const LoginContainer = styled.div`
 
 export const Placeholder = styled.p`
   position: absolute;
-  opacity: 0.5;
-  margin-top: -74px;
+  top: 18px;
   margin-left: 16px;
+  transition: .5s;
+
+  label > input:focus ~ &,
+  label > input:valid ~ & {
+    top: 4px;
+    opacity: 0.5;
+  };
 `;
 
 export const LogoContainer = styled.div`
@@ -99,13 +110,36 @@ export const InputButton = styled.div`
   flex-direction: row;
 `;
 
-export const InputEmail = styled.input`
-  padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
+export const ErrorMessage = styled.div`
+  position: absolute;
+  margin-top: 14px;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 16px 24px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #FFF;
+  border-radius: 4px;
+
+  &:after {
+    content: '';
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    top: -20px;
+    left: 16px;
+    border-bottom-color: rgba(255, 255, 255, 0.4);
+  }
 `;
+
+// export const InputEmail = styled.input`
+//   padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
+// `;
 
 // padding-top: ${(props) => (props.children.props.children[1].props
 // .children[0].props.value != '' ? '16px' : '0px')};
 
-export const InputSenha = styled.input`
-  padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
-`;
+// export const InputSenha = styled.input`
+//   padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
+// `;

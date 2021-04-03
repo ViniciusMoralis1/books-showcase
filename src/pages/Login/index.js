@@ -7,13 +7,27 @@ import LogoIoasys from '../../components/logoIoasys';
 import api from '../../services/api';
 
 import {
-  Container, LoginContainer, LogoContainer, Placeholder, InputEmail, InputSenha,
+  Container, LoginContainer, LogoContainer, Placeholder, ErrorMessage,
 } from './styles';
 
 const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [alert, setAlert] = useState(false);
+  const [errorAlert, setErrorAlert] = useState(false);
+
+  function showAlert(e) {
+    e.preventDefault();
+    setAlert(true);
+    setErrorAlert(false);
+    console.log(alert);
+  }
+
+  function showErrorAlert() {
+    setAlert(false);
+    setErrorAlert(true);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -32,9 +46,12 @@ const Login = () => {
           localStorage.setItem('@BookShowcase:User', JSON.stringify(user));
 
           history.push('/listagem');
+        } else {
+          console.log(`erro - status: ${response.status}`);
         }
       });
     } catch (error) {
+      showErrorAlert();
       console.log(error);
     }
   }
@@ -48,18 +65,28 @@ const Login = () => {
           </LogoContainer>
 
           <label>
-            <InputEmail placeholder="E-mail" value={email} onChange={(e) => setEmail(e.target.value)} />
-            {email && (
-              <Placeholder>E-mail</Placeholder>
-            )}
+            <input value={email} onChange={(e) => setEmail(e.target.value)} minLength="1" onInvalid={showAlert} required />
+            <Placeholder>E-mail</Placeholder>
           </label>
           <label>
-            <InputSenha placeholder="Senha" type="password" value={senha} onChange={(e) => setSenha(e.target.value)} />
-            {senha && (
-              <Placeholder>Senha</Placeholder>
-            )}
+            <input type="password" value={senha} onChange={(e) => setSenha(e.target.value)} minLength="1" onInvalid={showAlert} required />
+            <Placeholder>Senha</Placeholder>
+
             <button type="submit"><span>Entrar</span></button>
           </label>
+
+          {errorAlert && (
+            <ErrorMessage>
+              <span>E-mail e/ou senha incorretos.</span>
+            </ErrorMessage>
+          )}
+
+          {alert && (
+            <ErrorMessage>
+              <span>Preencha todos os campos.</span>
+            </ErrorMessage>
+          )}
+
         </form>
       </LoginContainer>
     </Container>
