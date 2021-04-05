@@ -22,7 +22,7 @@ const Header = ({ name }) => {
       <LogoIoasys />
       <div>
         <h1>
-          Bem vindo, <span>{name}!</span>
+          Bem vindo, <span>{name.split(' ')[0].trim()}!</span>
         </h1>
         <button type="button" onClick={handleLogout}>
           <FiLogOut size={16} color="#000" />

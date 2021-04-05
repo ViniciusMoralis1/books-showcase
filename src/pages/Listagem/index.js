@@ -4,9 +4,11 @@
 /* eslint-disable wrap-iife */
 /* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import Header from '../../components/Header';
 import api from '../../services/api';
+
+import Modal from '../../components/Modal';
 
 import { Container, BooksContainer } from './styles';
 
@@ -16,6 +18,8 @@ const Listagem = () => {
   const [books, setBooks] = useState([]);
   const token = localStorage.getItem('@BookShowcase:Token');
   const user = JSON.parse(localStorage.getItem('@BookShowcase:User'));
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalInfo, setModalInfo] = useState({});
 
   async function loadBooks() {
     await api.get('books', {
@@ -40,10 +44,6 @@ const Listagem = () => {
     loadBooks();
   }, [actualPage]);
 
-  function teste() {
-    console.log('teste');
-  }
-
   function lastPage() {
     setActualPage(actualPage - 1);
   }
@@ -52,13 +52,18 @@ const Listagem = () => {
     setActualPage(actualPage + 1);
   }
 
+  function handleModal(item) {
+    setIsModalVisible(true);
+    setModalInfo(item.book);
+  }
+
   return (
     <Container>
       <Header name={user.name} />
       <BooksContainer>
         <ul>
           {books && books?.map((book) => (
-            <li key={book.id} onClick={teste}>
+            <li key={book.id} onClick={() => handleModal({ book })}>
               <div className="imageContainer">
                 <img src={book.imageUrl} alt="capa do livro" />
               </div>
@@ -83,14 +88,17 @@ const Listagem = () => {
 
         <div className="buttonsContainer">
           <button type="button" disabled={actualPage === 1} onClick={lastPage}>
-            <FiChevronLeft size={16} color="#000" className="icon" />
+            <MdChevronLeft size={16} color="#000" className="icon" />
           </button>
 
           <button type="button" disabled={actualPage === totalPages} onClick={nextpage}>
-            <FiChevronRight size={16} color="#000" />
+            <MdChevronRight size={16} color="#000" />
           </button>
         </div>
       </div>
+      { isModalVisible && (
+        <Modal book={modalInfo} close={setIsModalVisible} />
+      )}
     </Container>
   );
 };
