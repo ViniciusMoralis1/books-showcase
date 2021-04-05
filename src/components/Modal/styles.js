@@ -61,8 +61,6 @@ export const Container = styled.div`
   };
 
   .mainContainer {
-    margin-bottom: 24px;
-
     h1 {
       font-size: 28px;
       line-height: 40px;
@@ -80,7 +78,6 @@ export const Container = styled.div`
   .secondaryContainer {
     display: flex;
     flex-direction: column;
-    margin: 24px 0;
 
     .infoText {
       margin-bottom: 16px;
@@ -113,7 +110,7 @@ export const Container = styled.div`
     .descriptionTitle {
       font-weight: 500;
       color: #333;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     };
 
     .descriptionText {
@@ -178,16 +175,12 @@ export const Container = styled.div`
     };
 
     .mainContainer {
-      margin: 16px 0;
+      margin: 12px 0;
     };
 
     .secondaryContainer {
-      margin: 16px 0;
+      margin: 12px 0;
     };
-
-    .descriptionContainer {
-      margin: 16px 0;
-    }
   };
 
   @media (max-width: 1000px){
