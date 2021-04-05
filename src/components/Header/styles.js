@@ -41,7 +41,7 @@ export const Container = styled.div`
     margin: 24px 0;
 
     h1 {
-      font-size: 20px;
+      font-size: 18px;
     }
   };
 
