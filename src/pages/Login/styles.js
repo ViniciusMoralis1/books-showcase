@@ -132,14 +132,3 @@ export const ErrorMessage = styled.div`
     border-bottom-color: rgba(255, 255, 255, 0.4);
   }
 `;
-
-// export const InputEmail = styled.input`
-//   padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
-// `;
-
-// padding-top: ${(props) => (props.children.props.children[1].props
-// .children[0].props.value != '' ? '16px' : '0px')};
-
-// export const InputSenha = styled.input`
-//   padding-top: ${(props) => { (props.value !== '' ? '16px' : '0px'); }};
-// `;

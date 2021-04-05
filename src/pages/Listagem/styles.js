@@ -40,6 +40,12 @@ export const Container = styled.div`
     padding: 6px;
     background: transparent;
     margin-left: 8px;
+    transition: filter .5s;
+
+    &:disabled {
+      border: 1px solid rgba(51, 51, 51, 0.1);
+      cursor: auto;
+    }
   }
 `;
 
@@ -62,10 +68,11 @@ export const BooksContainer = styled.div`
     border-radius: 4px;
     position: relative;
     box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
+    cursor: pointer;
   }
 
   .imageContainer {
-    margin-right: 16px;
+    margin-right: 24px;
   }
 
   .imageContainer > img {
