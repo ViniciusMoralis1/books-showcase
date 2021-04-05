@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 10vh;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0;
+  margin: 12px 0;
 
   h1 {
     font-size: 16px;
@@ -37,7 +37,7 @@ export const Container = styled.div`
     };
   };
 
-  @media(max-width: 1000px){
+  @media(max-width: 1250px){
     margin: 24px 0;
 
     h1 {

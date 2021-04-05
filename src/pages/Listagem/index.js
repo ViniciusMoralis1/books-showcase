@@ -24,7 +24,7 @@ const Listagem = () => {
     await api.get('books', {
       params: {
         page: actualPage,
-        amount: 12,
+        amount: 16,
         category: 'biographies',
       },
       headers: {
