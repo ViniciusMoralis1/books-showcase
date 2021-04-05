@@ -1,7 +1,7 @@
 /* eslint-disable quote-props */
 /* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import LogoIoasys from '../../components/logoIoasys';
 import api from '../../services/api';
@@ -39,7 +39,6 @@ const Login = () => {
 
       await api.post('/auth/sign-in', data).then((response) => {
         if (response && response.status >= 200 && response.status < 300) {
-          console.log(response);
           const token = response.headers.authorization;
           const user = response.data;
           localStorage.setItem('@BookShowcase:Token', token);
@@ -55,6 +54,15 @@ const Login = () => {
       console.log(error);
     }
   }
+
+  useEffect(() => {
+    const token = localStorage.getItem('@BookShowcase:Token');
+    const user = localStorage.getItem('@BookShowcase:User');
+
+    if (token && user) {
+      history.push('/listagem');
+    }
+  }, []);
 
   return (
     <Container>
