@@ -1,5 +1,4 @@
 /* eslint-disable quote-props */
-/* eslint-disable no-console */
 /* eslint-disable arrow-body-style */
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
@@ -21,7 +20,6 @@ const Login = () => {
     e.preventDefault();
     setAlert(true);
     setErrorAlert(false);
-    console.log(alert);
   }
 
   function showErrorAlert() {
@@ -45,13 +43,10 @@ const Login = () => {
           localStorage.setItem('@BookShowcase:User', JSON.stringify(user));
 
           history.push('/listagem');
-        } else {
-          console.log(`erro - status: ${response.status}`);
         }
       });
     } catch (error) {
       showErrorAlert();
-      console.log(error);
     }
   }
 

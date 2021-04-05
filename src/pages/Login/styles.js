@@ -1,5 +1,4 @@
 /* eslint-disable eqeqeq */
-/* eslint-disable no-console */
 /* eslint-disable no-unused-expressions */
 import styled from 'styled-components';
 

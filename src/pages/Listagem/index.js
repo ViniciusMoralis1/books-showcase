@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable wrap-iife */
-/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import Header from '../../components/Header';
@@ -32,8 +31,6 @@ const Listagem = () => {
         Authorization: `Bearer ${token}`,
       },
     }).then((response) => {
-      console.log(response.data.data);
-      console.log(response.data);
       setTotalPages(Math.round(response.data.totalPages));
 
       setBooks(response.data.data);
