@@ -38,16 +38,12 @@ export const Container = styled.div`
   };
 
   @media(max-width: 1250px){
-    margin: 24px 0;
-
     h1 {
       font-size: 18px;
     }
   };
 
   @media(max-width: 650px){
-    margin: 40px 0;
-
     h1 {
       font-size: 24px;
     }

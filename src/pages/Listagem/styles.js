@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   background: url("/img/list-bg.png") no-repeat center center fixed;
   background-color: #F5F5F5;
   color: #333;
