@@ -62,7 +62,7 @@ const Listagem = () => {
           {books && books?.map((book) => (
             <li key={book.id} onClick={() => handleModal({ book })}>
               <div className="imageContainer">
-                <img src={book.imageUrl} alt="capa do livro" />
+                <img src={book.imageUrl || '/img/book_default.png'} alt="capa do livro" />
               </div>
               <div className="bookInfo">
                 <div className="mainInfoContainer">

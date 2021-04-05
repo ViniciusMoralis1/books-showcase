@@ -16,7 +16,7 @@ const Modal = ({ book, close }) => {
       <div className="modalContainer">
         <div className="content">
           <div className="imageContainer">
-            <img className="image" src={book.imageUrl} alt="capa do livro" />
+            <img className="image" src={book.imageUrl || '/img/book_default.png'} alt="capa do livro" />
           </div>
           <div className="infoContainer">
             <div className="mainContainer">
