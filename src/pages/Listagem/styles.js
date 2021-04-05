@@ -17,20 +17,19 @@ export const Container = styled.div`
     margin-top: 16px;
     align-self: flex-end;
     flex-direction: row;
-    /* justify-content: space-between; */
     align-items: center;
-  }
+  };
 
   .pagesContainer > p {
     font-size: 12px;
     font-weight: 400;
     line-height: 20px;
     margin-right: 8px;
-  }
+  };
 
   .pagesContainer > p > span {
     font-weight: 500;
-  }
+  };
 
   .buttonsContainer > button {
     border-radius: 25px;
@@ -45,20 +44,24 @@ export const Container = styled.div`
     &:disabled {
       border: 1px solid rgba(51, 51, 51, 0.1);
       cursor: auto;
-    }
-  }
+    };
+  };
+
+  @media (max-width: 550px){
+    .pagesContainer {
+      height: 300px;
+      align-self: center;
+    };
+  };
 `;
 
 export const BooksContainer = styled.div`
-  /* margin: auto 0;
-  justify-content: center; */
-
   ul {
     display: grid;
-    grid-template-columns: repeat(4, 0.33fr);
+    grid-template-columns: repeat(4, 0.25fr);
     grid-gap: 16px;
     list-style: none;
-  }
+  };
 
   ul > li {
     display: flex;
@@ -69,71 +72,57 @@ export const BooksContainer = styled.div`
     position: relative;
     box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
     cursor: pointer;
-  }
+  };
 
   .imageContainer {
     margin-right: 24px;
-  }
+  };
 
   .imageContainer > img {
     width: 95px;
     height: 140px;
     filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
-  }
+  };
 
   .bookInfo {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     line-height: 20px;
-  }
+  };
 
   .mainInfoContainer > h1 {
     font-size: 14px;
     font-weight: 500;
-  }
+  };
 
   .mainInfoContainer > h2 {
     font-size: 12px;
     font-weight: 400;
     color: #AB2680;
-  }
+  };
 
   .otherInfoContainer > h3 {
     font-weight: 400;
     font-size: 12px;
     color: #999;
-  }
-`;
+  };
 
-export const Modal = styled.div`
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  top: 0;
-  left: 0;
-  background-color: rgb(0,0,0, 0.4);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @media (max-width: 1250px){
+    ul {
+      grid-template-columns: repeat(3, 0.33fr);
+    };
+  };
 
-  .closeButton {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    border-radius: 25px;
-    border: 1px solid rgba(51, 51, 51, 0.2);
-    height: 32px;
-    width: 32px;
-    padding: 6px;
-    background: #FFF;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
-  }
+  @media (max-width: 1000px){
+    ul {
+      grid-template-columns: repeat(2, 0.5fr);
+    };
+  };
 
-  .modalContainer {
-    width: 60%;
-    height: 80vh;
-    background-color: #FFF;
-  }
+  @media (max-width: 650px){
+    ul {
+      grid-template-columns: repeat(1, 1fr);
+    };
+  };
 `;

@@ -15,7 +15,7 @@ export const LoginContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  place-content: center;
+  justify-content: center;
 
   width: 100%;
   max-width: 600px;
@@ -54,11 +54,6 @@ export const LoginContainer = styled.div`
     display: inline-block;
   }
 
-  label > input {
-    width: 360px;
-    align-items: center;
-  }
-
   label > button {
     position: absolute;
     background: #FFFFFF;
@@ -84,6 +79,20 @@ export const LoginContainer = styled.div`
     font-size: 16px;
     font-weight: 500;
   }
+
+  @media(max-width: 550px){
+    form {
+      width: 280px;
+    };
+
+    label {
+      width: 280px;
+    };
+
+    input {
+      width: 280px;
+    }
+  };
 `;
 
 export const Placeholder = styled.p`

@@ -59,7 +59,7 @@ const Listagem = () => {
 
   return (
     <Container>
-      <Header name={user.name} />
+      <Header className="header" name={user.name} />
       <BooksContainer>
         <ul>
           {books && books?.map((book) => (
@@ -87,11 +87,11 @@ const Listagem = () => {
         <p>Página <span>{actualPage}</span> de <span>{totalPages}</span></p>
 
         <div className="buttonsContainer">
-          <button type="button" disabled={actualPage === 1} onClick={lastPage}>
+          <button className="backButton" type="button" disabled={actualPage === 1} onClick={lastPage}>
             <MdChevronLeft size={16} color="#000" className="icon" />
           </button>
 
-          <button type="button" disabled={actualPage === totalPages} onClick={nextpage}>
+          <button className="forwardButton" type="button" disabled={actualPage === totalPages} onClick={nextpage}>
             <MdChevronRight size={16} color="#000" />
           </button>
         </div>

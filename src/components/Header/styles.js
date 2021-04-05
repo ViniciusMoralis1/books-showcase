@@ -36,4 +36,24 @@ export const Container = styled.div`
       background: transparent;
     };
   };
+
+  @media(max-width: 1000px){
+    margin: 24px 0;
+
+    h1 {
+      font-size: 20px;
+    }
+  };
+
+  @media(max-width: 650px){
+    margin: 40px 0;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .welcomeText {
+      display: none;
+    }
+  };
 `;
