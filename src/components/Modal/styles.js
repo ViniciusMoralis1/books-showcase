@@ -136,7 +136,7 @@ export const Container = styled.div`
     };
   };
 
-  @media (max-width: 1350px){
+  @media (max-width: 1350px) and (min-width: 1125px){
     .modalContainer {
       width: 65%;
       height: 75vh;
@@ -199,13 +199,13 @@ export const Container = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
-    height: 180vh;
+    height: 185vh;
     background-color: rgb(0,0,0, 0.6);
 
     .modalContainer {
       margin-top: -60px;
       width: 90%;
-      min-height: 150vh;
+      min-height: 155vh;
       max-height: 1300px;
     };
 
@@ -217,7 +217,7 @@ export const Container = styled.div`
     };
 
     .imageContainer {
-      margin: 16px 24px 24px 24px;
+      margin: 16px 24px 0px 24px;
     };
 
     .image {
@@ -228,18 +228,19 @@ export const Container = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      height: 95vh;
     };
 
     .mainContainer {
-      margin: 32px 0;
+      margin: 16px 0;
     };
 
     .secondaryContainer {
-      margin: 32px 0;
+      margin: 24px 0;
     };
 
     .descriptionContainer {
-      margin: 32px 0;
+      margin: 24px 0;
     }
   };
 `;
